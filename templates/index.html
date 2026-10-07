@@ -1,18 +1,23 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#070b14">
-  <meta name="description" content="NETSCAN is a lightweight IP address and network intelligence dashboard powered by Python and Flask.">
+  <meta name="description"
+    content="NETSCAN is a lightweight IP address and network intelligence dashboard powered by Python and Flask.">
   <title>NETSCAN — IP &amp; Network Intelligence</title>
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
 </head>
+
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="site-shell">
@@ -21,7 +26,8 @@
         <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
         <span><strong>NETSCAN</strong><small>IP &amp; NETWORK INTELLIGENCE</small></span>
       </a>
-      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span></button>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"
+        aria-controls="primary-nav"><span></span><span></span></button>
       <nav id="primary-nav" class="nav-links" aria-label="Main navigation">
         <a href="#dashboard">Dashboard</a>
         <a href="#analyzer">IP Analyzer</a>
@@ -36,96 +42,267 @@
         <div class="hero-orbit orbit-one" aria-hidden="true"></div>
         <div class="hero-orbit orbit-two" aria-hidden="true"></div>
         <svg class="hero-network" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs><linearGradient id="lineGlow" x1="0" x2="1"><stop stop-color="#33e9ff" stop-opacity=".05"/><stop offset=".5" stop-color="#33e9ff" stop-opacity=".42"/><stop offset="1" stop-color="#9d7bff" stop-opacity=".06"/></linearGradient></defs>
+          <defs>
+            <linearGradient id="lineGlow" x1="0" x2="1">
+              <stop stop-color="#33e9ff" stop-opacity=".05" />
+              <stop offset=".5" stop-color="#33e9ff" stop-opacity=".42" />
+              <stop offset="1" stop-color="#9d7bff" stop-opacity=".06" />
+            </linearGradient>
+          </defs>
           <g class="network-lines" stroke="url(#lineGlow)" stroke-width="1">
-            <path d="M80 190 250 280 390 145 560 240 720 110 900 220 1090 130"/><path d="M110 510 250 280 420 430 560 240 730 390 900 220 1060 470"/><path d="M390 145 420 430 610 560 730 390 900 520 1060 470"/><path d="M80 190 110 510M720 110 730 390M1090 130 1060 470"/>
+            <path d="M80 190 250 280 390 145 560 240 720 110 900 220 1090 130" />
+            <path d="M110 510 250 280 420 430 560 240 730 390 900 220 1060 470" />
+            <path d="M390 145 420 430 610 560 730 390 900 520 1060 470" />
+            <path d="M80 190 110 510M720 110 730 390M1090 130 1060 470" />
           </g>
-          <g class="network-nodes"><circle cx="80" cy="190" r="3"/><circle cx="250" cy="280" r="5"/><circle cx="390" cy="145" r="3"/><circle cx="560" cy="240" r="6"/><circle cx="720" cy="110" r="3"/><circle cx="900" cy="220" r="5"/><circle cx="1090" cy="130" r="3"/><circle cx="110" cy="510" r="3"/><circle cx="420" cy="430" r="4"/><circle cx="610" cy="560" r="3"/><circle cx="730" cy="390" r="5"/><circle cx="900" cy="520" r="3"/><circle cx="1060" cy="470" r="4"/></g>
-          <g class="signal-packets"><circle r="3"><animateMotion dur="5s" repeatCount="indefinite" path="M250 280 390 145 560 240"/></circle><circle r="2"><animateMotion dur="7s" begin="1s" repeatCount="indefinite" path="M110 510 250 280 560 240 730 390"/></circle></g>
+          <g class="network-nodes">
+            <circle cx="80" cy="190" r="3" />
+            <circle cx="250" cy="280" r="5" />
+            <circle cx="390" cy="145" r="3" />
+            <circle cx="560" cy="240" r="6" />
+            <circle cx="720" cy="110" r="3" />
+            <circle cx="900" cy="220" r="5" />
+            <circle cx="1090" cy="130" r="3" />
+            <circle cx="110" cy="510" r="3" />
+            <circle cx="420" cy="430" r="4" />
+            <circle cx="610" cy="560" r="3" />
+            <circle cx="730" cy="390" r="5" />
+            <circle cx="900" cy="520" r="3" />
+            <circle cx="1060" cy="470" r="4" />
+          </g>
+          <g class="signal-packets">
+            <circle r="3">
+              <animateMotion dur="5s" repeatCount="indefinite" path="M250 280 390 145 560 240" />
+            </circle>
+            <circle r="2">
+              <animateMotion dur="7s" begin="1s" repeatCount="indefinite" path="M110 510 250 280 560 240 730 390" />
+            </circle>
+          </g>
         </svg>
         <div class="hero-content">
-          <p class="eyebrow"><span class="eyebrow-line"></span> NETWORK SYSTEM READY <span class="live-pill">LIVE</span></p>
+          <p class="eyebrow"><span class="eyebrow-line"></span> NETWORK SYSTEM READY <span class="live-pill">LIVE</span>
+          </p>
           <h1 id="hero-title">NETWORK<br><span>INTELLIGENCE</span><br>AT YOUR FINGERTIPS</h1>
           <p class="hero-copy">Discover, analyze and understand IP addresses.<br>Network insight, made clear.</p>
-          <div class="hero-actions"><button class="button button-primary" id="start-scan" type="button"><span class="button-icon" aria-hidden="true">↗</span> START NETWORK SCAN</button><a class="text-link" href="#analyzer">Explore IP analyzer <span aria-hidden="true">↓</span></a></div>
-          <div class="hero-footnote"><span class="tiny-cross" aria-hidden="true">＋</span> EDUCATIONAL NETWORK INTELLIGENCE <span class="foot-separator"></span> NO DEVICE DISCOVERY</div>
+          <div class="hero-actions"><button class="button button-primary" id="start-scan" type="button"><span
+                class="button-icon" aria-hidden="true">↗</span> START NETWORK SCAN</button><a class="text-link"
+              href="#analyzer">Explore IP analyzer <span aria-hidden="true">↓</span></a></div>
+          <div class="hero-footnote"><span class="tiny-cross" aria-hidden="true">＋</span> EDUCATIONAL NETWORK
+            INTELLIGENCE <span class="foot-separator"></span> NO DEVICE DISCOVERY</div>
         </div>
         <div class="hero-side-note" aria-hidden="true"><span>NET / 01</span><i></i><span>IP INTELLIGENCE</span></div>
         <div class="scroll-cue" aria-hidden="true"><span></span> SCROLL TO EXPLORE</div>
       </section>
 
       <section class="section dashboard-section" id="dashboard" aria-labelledby="dashboard-title">
-        <div class="section-heading"><div><p class="eyebrow">01 / LIVE ENVIRONMENT</p><h2 id="dashboard-title">Your <span>network.</span></h2></div><div class="online-label"><i class="status-dot"></i> <span>SERVER ONLINE</span></div></div>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">01 / LIVE ENVIRONMENT</p>
+            <h2 id="dashboard-title">Your <span>network.</span></h2>
+          </div>
+          <div class="online-label"><i class="status-dot"></i> <span>SERVER ONLINE</span></div>
+        </div>
         <div class="dashboard-layout">
           <article class="panel network-panel reveal">
-            <div class="panel-top"><div><p class="panel-kicker">NETWORK OVERVIEW</p><h3>Connection profile</h3></div><span class="live-tag"><i></i> LIVE</span></div>
-            <div class="network-info-grid">
-              <div class="info-tile info-ip"><span class="tile-label">SERVER IP ADDRESS</span><strong id="server-ip" class="data-value">SCANNING...</strong><button id="copy-ip" class="copy-button" type="button" aria-label="Copy server IP" title="Copy IP address">COPY <span aria-hidden="true">▢</span></button></div>
-              <div class="info-tile"><span class="tile-label">HOSTNAME</span><strong id="server-hostname" class="data-value">—</strong></div>
-              <div class="info-tile"><span class="tile-label">IP VERSION</span><strong id="server-version" class="data-value accent-value">—</strong></div>
-              <div class="info-tile"><span class="tile-label">RUNTIME</span><strong id="server-runtime" class="data-value">—</strong></div>
-              <div class="info-tile"><span class="tile-label">FULLY QUALIFIED HOSTNAME</span><strong id="server-fqdn" class="data-value">—</strong></div>
+            <div class="panel-top">
+              <div>
+                <p class="panel-kicker">NETWORK OVERVIEW</p>
+                <h3>Connection profile</h3>
+              </div><span class="live-tag"><i></i> LIVE</span>
             </div>
-            <div class="scope-note"><span aria-hidden="true">ⓘ</span><p id="scope-note">Network details belong to the machine running Flask—not necessarily your browser device.</p></div>
+            <div class="network-info-grid">
+              <div class="info-tile info-ip"><span class="tile-label">SERVER IP ADDRESS</span><strong id="server-ip"
+                  class="data-value">SCANNING...</strong><button id="copy-ip" class="copy-button" type="button"
+                  aria-label="Copy server IP" title="Copy IP address">COPY <span aria-hidden="true">▢</span></button>
+              </div>
+              <div class="info-tile"><span class="tile-label">HOSTNAME</span><strong id="server-hostname"
+                  class="data-value">—</strong></div>
+              <div class="info-tile"><span class="tile-label">IP VERSION</span><strong id="server-version"
+                  class="data-value accent-value">—</strong></div>
+              <div class="info-tile"><span class="tile-label">RUNTIME</span><strong id="server-runtime"
+                  class="data-value">—</strong></div>
+              <div class="info-tile"><span class="tile-label">FULLY QUALIFIED HOSTNAME</span><strong id="server-fqdn"
+                  class="data-value">—</strong></div>
+            </div>
+            <div class="scope-note"><span aria-hidden="true">ⓘ</span>
+              <p id="scope-note">Network details belong to the machine running Flask—not necessarily your browser
+                device.</p>
+            </div>
             <div id="network-error" class="inline-error" role="status" hidden></div>
           </article>
           <article class="panel topology-panel reveal">
-            <div class="panel-top"><div><p class="panel-kicker">NETWORK TOPOLOGY</p><h3>Connection map</h3></div><span class="map-label">ILLUSTRATIVE</span></div>
-            <div class="topology" role="img" aria-label="Illustrative connection between the internet, a router, and example devices; no devices are discovered">
+            <div class="panel-top">
+              <div>
+                <p class="panel-kicker">NETWORK TOPOLOGY</p>
+                <h3>Connection map</h3>
+              </div><span class="map-label">ILLUSTRATIVE</span>
+            </div>
+            <div class="topology" role="img"
+              aria-label="Illustrative connection between the internet, a router, and example devices; no devices are discovered">
               <div class="topo-internet"><span class="globe-icon">◎</span><span>INTERNET</span></div>
               <div class="topo-link vertical"><i class="packet packet-one"></i></div>
               <div class="topo-router"><span class="router-glyph">⌘</span><span>ROUTER</span></div>
               <div class="topo-link trunk"><i class="packet packet-two"></i></div>
               <div class="topo-branches"><span></span><span></span><span></span></div>
-              <div class="topo-devices"><div><i></i><b>DEVICE</b></div><div><i></i><b>DEVICE</b></div><div><i></i><b>DEVICE</b></div></div>
+              <div class="topo-devices">
+                <div><i></i><b>DEVICE</b></div>
+                <div><i></i><b>DEVICE</b></div>
+                <div><i></i><b>DEVICE</b></div>
+              </div>
             </div>
             <p class="map-disclaimer">Conceptual diagram only · devices are not scanned</p>
           </article>
         </div>
         <div class="stats-grid" aria-label="IP support statistics">
-          <article class="stat-card reveal"><div class="stat-top"><span>IPv4</span><span class="stat-glyph">◈</span></div><strong>SUPPORTED</strong><small>32-BIT ADDRESSING</small><div class="stat-line"></div></article>
-          <article class="stat-card reveal"><div class="stat-top"><span>IPv6</span><span class="stat-glyph">⬡</span></div><strong>SUPPORTED</strong><small>128-BIT ADDRESSING</small><div class="stat-line purple"></div></article>
-          <article class="stat-card reveal"><div class="stat-top"><span>PRIVATE</span><span class="stat-glyph">⌑</span></div><strong id="private-count">READY</strong><small>ADDRESS CLASSIFICATION</small><div class="stat-line"></div></article>
-          <article class="stat-card reveal"><div class="stat-top"><span>PUBLIC</span><span class="stat-glyph">↗</span></div><strong id="public-count">READY</strong><small>ADDRESS CLASSIFICATION</small><div class="stat-line purple"></div></article>
+          <article class="stat-card reveal">
+            <div class="stat-top"><span>IPv4</span><span class="stat-glyph">◈</span></div>
+            <strong>SUPPORTED</strong><small>32-BIT ADDRESSING</small>
+            <div class="stat-line"></div>
+          </article>
+          <article class="stat-card reveal">
+            <div class="stat-top"><span>IPv6</span><span class="stat-glyph">⬡</span></div>
+            <strong>SUPPORTED</strong><small>128-BIT ADDRESSING</small>
+            <div class="stat-line purple"></div>
+          </article>
+          <article class="stat-card reveal">
+            <div class="stat-top"><span>PRIVATE</span><span class="stat-glyph">⌑</span></div><strong
+              id="private-count">READY</strong><small>ADDRESS CLASSIFICATION</small>
+            <div class="stat-line"></div>
+          </article>
+          <article class="stat-card reveal">
+            <div class="stat-top"><span>PUBLIC</span><span class="stat-glyph">↗</span></div><strong
+              id="public-count">READY</strong><small>ADDRESS CLASSIFICATION</small>
+            <div class="stat-line purple"></div>
+          </article>
         </div>
       </section>
 
       <section class="section analyzer-section" id="analyzer" aria-labelledby="analyzer-title">
-        <div class="section-heading"><div><p class="eyebrow">02 / ADDRESS INTELLIGENCE</p><h2 id="analyzer-title">IP <span>Analyzer.</span></h2><p class="section-subtitle">Enter an IP address to perform network intelligence analysis.</p></div><div class="radar-wrap" aria-hidden="true"><div class="radar"><i></i><i></i><i></i><span></span></div></div></div>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">02 / ADDRESS INTELLIGENCE</p>
+            <h2 id="analyzer-title">IP <span>Analyzer.</span></h2>
+            <p class="section-subtitle">Enter an IP address to perform network intelligence analysis.</p>
+          </div>
+          <div class="radar-wrap" aria-hidden="true">
+            <div class="radar"><i></i><i></i><i></i><span></span></div>
+          </div>
+        </div>
         <div class="analyzer-panel panel reveal">
           <form id="analyzer-form" novalidate>
             <label for="ip-input" class="input-label">TARGET IP ADDRESS <span>IPv4 / IPv6</span></label>
-            <div class="input-row"><div class="input-wrap"><span aria-hidden="true">⌁</span><input id="ip-input" name="ip" type="text" inputmode="text" autocomplete="off" spellcheck="false" placeholder="Enter IPv4 or IPv6 address" aria-describedby="input-hint input-error" aria-invalid="false"><button type="button" class="clear-input" id="clear-input" aria-label="Clear IP address">×</button></div><button class="button button-primary analyze-button" id="analyze-button" type="submit"><span>ANALYZE</span><span aria-hidden="true">→</span></button></div>
-            <p id="input-hint" class="input-hint">Try a sample address or enter your own. Analysis is local and does not contact the target.</p>
+            <div class="input-row">
+              <div class="input-wrap"><span aria-hidden="true">⌁</span><input id="ip-input" name="ip" type="text"
+                  inputmode="text" autocomplete="off" spellcheck="false" placeholder="Enter IPv4 or IPv6 address"
+                  aria-describedby="input-hint input-error" aria-invalid="false"><button type="button"
+                  class="clear-input" id="clear-input" aria-label="Clear IP address">×</button></div><button
+                class="button button-primary analyze-button" id="analyze-button" type="submit"><span>ANALYZE</span><span
+                  aria-hidden="true">→</span></button>
+            </div>
+            <p id="input-hint" class="input-hint">Try a sample address or enter your own. Analysis is local and does not
+              contact the target.</p>
             <p id="input-error" class="form-error" role="alert" hidden></p>
           </form>
-          <div class="quick-picks"><span>QUICK SELECT</span><button type="button" data-ip="8.8.8.8">8.8.8.8</button><button type="button" data-ip="192.168.1.1">192.168.1.1</button><button type="button" data-ip="10.0.0.1">10.0.0.1</button><button type="button" data-ip="172.16.0.1">172.16.0.1</button></div>
+          <div class="quick-picks"><span>QUICK SELECT</span><button type="button"
+              data-ip="8.8.8.8">8.8.8.8</button><button type="button" data-ip="192.168.1.1">192.168.1.1</button><button
+              type="button" data-ip="10.0.0.1">10.0.0.1</button><button type="button"
+              data-ip="172.16.0.1">172.16.0.1</button></div>
         </div>
-        <div class="scan-status" id="scan-status" aria-live="polite" hidden><div class="scan-ring"><span></span></div><div class="scan-copy"><strong id="scan-message">INITIALIZING SCAN...</strong><span id="scan-submessage">Secure local analysis sequence</span></div><div class="scan-progress"><i></i></div></div>
+        <div class="scan-status" id="scan-status" aria-live="polite" hidden>
+          <div class="scan-ring"><span></span></div>
+          <div class="scan-copy"><strong id="scan-message">INITIALIZING SCAN...</strong><span
+              id="scan-submessage">Secure local analysis sequence</span></div>
+          <div class="scan-progress"><i></i></div>
+        </div>
         <div class="result-layout" id="result-layout" hidden>
           <article class="panel result-panel" aria-labelledby="result-title">
-            <div class="panel-top"><div><p class="panel-kicker">ANALYSIS REPORT</p><h3 id="result-title">IP analysis</h3></div><div class="result-controls"><span class="complete-badge"><i></i> SCAN COMPLETE</span><button class="icon-button" id="reset-analysis" type="button" aria-label="Reset analysis" title="Reset analysis">↺</button></div></div>
-            <div class="result-address"><span class="result-address-label">ANALYZED ADDRESS</span><strong id="result-ip">—</strong><span id="result-type-badge" class="type-badge">—</span></div>
-            <div class="result-fields"><div><span>VERSION</span><strong id="result-version">—</strong></div><div><span>ADDRESS CLASS</span><strong id="result-class">—</strong></div><div><span>ADDRESS TYPE</span><strong id="result-type">—</strong></div></div>
-            <p class="class-note">Traditional A/B/C/D/E address classes apply to IPv4 only. IPv6 addresses are shown as N/A.</p>
+            <div class="panel-top">
+              <div>
+                <p class="panel-kicker">ANALYSIS REPORT</p>
+                <h3 id="result-title">IP analysis</h3>
+              </div>
+              <div class="result-controls"><span class="complete-badge"><i></i> SCAN COMPLETE</span><button
+                  class="icon-button" id="reset-analysis" type="button" aria-label="Reset analysis"
+                  title="Reset analysis">↺</button></div>
+            </div>
+            <div class="result-address"><span class="result-address-label">ANALYZED ADDRESS</span><strong
+                id="result-ip">—</strong><span id="result-type-badge" class="type-badge">—</span></div>
+            <div class="result-fields">
+              <div><span>VERSION</span><strong id="result-version">—</strong></div>
+              <div><span>ADDRESS CLASS</span><strong id="result-class">—</strong></div>
+              <div><span>ADDRESS TYPE</span><strong id="result-type">—</strong></div>
+            </div>
+            <p class="class-note">Traditional A/B/C/D/E address classes apply to IPv4 only. IPv6 addresses are shown as
+              N/A.</p>
           </article>
-          <article class="panel terminal-panel"><div class="terminal-header"><span class="terminal-lights"><i></i><i></i><i></i></span><span>NETSCAN TERMINAL</span><span class="terminal-live">● LIVE</span></div><div class="terminal-body" id="terminal-body" aria-live="polite"><p><span>&gt;</span> Initializing network interface...</p><p><span>&gt;</span> Detecting hostname...</p><p><span>&gt;</span> Resolving IP...</p><p><span>&gt;</span> Checking address type...</p><p><span>&gt;</span> Checking address class...</p><p class="terminal-done"><span>&gt;</span> Analysis complete.<b>_</b></p></div></article>
+          <article class="panel terminal-panel">
+            <div class="terminal-header"><span class="terminal-lights"><i></i><i></i><i></i></span><span>NETSCAN
+                TERMINAL</span><span class="terminal-live">● LIVE</span></div>
+            <div class="terminal-body" id="terminal-body" aria-live="polite">
+              <p><span>&gt;</span> Initializing network interface...</p>
+              <p><span>&gt;</span> Detecting hostname...</p>
+              <p><span>&gt;</span> Resolving IP...</p>
+              <p><span>&gt;</span> Checking address type...</p>
+              <p><span>&gt;</span> Checking address class...</p>
+              <p class="terminal-done"><span>&gt;</span> Analysis complete.<b>_</b></p>
+            </div>
+          </article>
         </div>
         <article class="panel class-panel reveal" aria-labelledby="class-title">
-          <div class="panel-top"><div><p class="panel-kicker">IPv4 REFERENCE</p><h3 id="class-title">Address class spectrum</h3></div><span class="map-label">CLASSFUL NETWORKING</span></div>
-          <div class="class-spectrum" id="class-spectrum">
-            <div class="class-item" data-class="Class A"><b>A</b><span>1–126</span><small>UNICAST</small></div><div class="spectrum-connector"></div><div class="class-item" data-class="Class B"><b>B</b><span>128–191</span><small>UNICAST</small></div><div class="spectrum-connector"></div><div class="class-item" data-class="Class C"><b>C</b><span>192–223</span><small>UNICAST</small></div><div class="spectrum-connector"></div><div class="class-item" data-class="Class D"><b>D</b><span>224–239</span><small>MULTICAST</small></div><div class="spectrum-connector"></div><div class="class-item" data-class="Class E"><b>E</b><span>240–255</span><small>RESERVED</small></div>
+          <div class="panel-top">
+            <div>
+              <p class="panel-kicker">IPv4 REFERENCE</p>
+              <h3 id="class-title">Address class spectrum</h3>
+            </div><span class="map-label">CLASSFUL NETWORKING</span>
           </div>
-          <div class="class-foot"><span>First-octet ranges shown for education</span><span id="class-detected">AWAITING ANALYSIS</span></div>
+          <div class="class-spectrum" id="class-spectrum">
+            <div class="class-item" data-class="Class A"><b>A</b><span>1–126</span><small>UNICAST</small></div>
+            <div class="spectrum-connector"></div>
+            <div class="class-item" data-class="Class B"><b>B</b><span>128–191</span><small>UNICAST</small></div>
+            <div class="spectrum-connector"></div>
+            <div class="class-item" data-class="Class C"><b>C</b><span>192–223</span><small>UNICAST</small></div>
+            <div class="spectrum-connector"></div>
+            <div class="class-item" data-class="Class D"><b>D</b><span>224–239</span><small>MULTICAST</small></div>
+            <div class="spectrum-connector"></div>
+            <div class="class-item" data-class="Class E"><b>E</b><span>240–255</span><small>RESERVED</small></div>
+          </div>
+          <div class="class-foot"><span>First-octet ranges shown for education</span><span id="class-detected">AWAITING
+              ANALYSIS</span></div>
         </article>
       </section>
 
       <section class="section about-section" id="about" aria-labelledby="about-title">
-        <div class="about-copy"><p class="eyebrow">03 / PURPOSE BUILT</p><h2 id="about-title">Clarity in a<br><span>connected world.</span></h2><p>NETSCAN is a Python-based IP and network information tool designed to demonstrate fundamental networking concepts through an interactive web interface.</p><p>It uses Python’s <strong>socket</strong> and <strong>ipaddress</strong> modules to retrieve server-side network information and analyze addresses. It never probes a target or discovers devices.</p><a class="text-link about-link" href="#home">BACK TO TOP <span aria-hidden="true">↑</span></a></div>
-        <div class="about-side"><div class="about-stamp"><span>BUILT FOR</span><strong>LEARNING<br>NETWORKS</strong><i>NETSCAN / 2026</i></div><div class="tech-panel panel"><div class="panel-top"><div><p class="panel-kicker">LIGHTWEIGHT STACK</p><h3>Technology</h3></div><span class="tech-bracket">{ }</span></div><div class="tech-list"><span>Python 3</span><span>Flask</span><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Socket</span><span>IPaddress</span></div></div></div>
+        <div class="about-copy">
+          <p class="eyebrow">03 / PURPOSE BUILT</p>
+          <h2 id="about-title">Clarity in a<br><span>connected world.</span></h2>
+          <p>NETSCAN is a Python-based IP and network information tool designed to demonstrate fundamental networking
+            concepts through an interactive web interface.</p>
+          <p>It uses Python’s <strong>socket</strong> and <strong>ipaddress</strong> modules to retrieve server-side
+            network information and analyze addresses. It never probes a target or discovers devices.</p><a
+            class="text-link about-link" href="#home">BACK TO TOP <span aria-hidden="true">↑</span></a>
+        </div>
+        <div class="about-side">
+          <div class="about-stamp"><span>BUILT FOR</span><strong>LEARNING<br>NETWORKS</strong><i>NETSCAN / 2026</i>
+          </div>
+          <div class="tech-panel panel">
+            <div class="panel-top">
+              <div>
+                <p class="panel-kicker">LIGHTWEIGHT STACK</p>
+                <h3>Technology</h3>
+              </div><span class="tech-bracket">{ }</span>
+            </div>
+            <div class="tech-list"><span>Python
+                3</span><span>Flask</span><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Socket</span><span>IPaddress</span>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
-    <footer class="footer"><a class="footer-brand" href="#home">NETSCAN<span> / IP &amp; NETWORK INTELLIGENCE</span></a><p>Educational use only · No IPs stored · No network scanning</p><span class="footer-version">SYS.VERSION 1.0.0</span></footer>
+    <footer class="footer"><a class="footer-brand" href="#home">NETSCAN<span> / IP &amp; NETWORK INTELLIGENCE</span></a>
+      <p>Educational use only · No IPs stored · No network scanning</p><span class="footer-version">SYS.VERSION
+        1.0.0</span>
+    </footer>
   </div>
 </body>
+
 </html>
