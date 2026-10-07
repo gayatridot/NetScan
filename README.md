@@ -118,7 +118,7 @@ No API keys or paid third-party services are required. A generic Python-compatib
 A website cannot use server-side Python `socket` calls to read the browser visitor's private IP address or computer hostname. Flask runs on the server, so `socket.gethostname()` and `socket.gethostbyname()` describe the Flask host. On a cloud deployment, NETSCAN explicitly labels that data as hosted-server information. Browser networking protections also prevent ordinary pages from reliably identifying a visitor's private LAN address. NETSCAN does not use an external public-IP service and does not collect visitor IPs.
 
 ## Live Project link
-[_Add screenshots of the hero, dashboard, and IP analyzer here after running the app._
+[https://net-scan-gamma.vercel.app/_
 ](https://net-scan-gamma.vercel.app/)
 
 ## How the Python backend works
